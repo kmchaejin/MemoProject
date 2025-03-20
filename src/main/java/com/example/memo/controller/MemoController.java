@@ -5,7 +5,6 @@ import com.example.memo.dto.MemoResponseDto;
 import com.example.memo.entity.Memo;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.util.PathMatcher;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
@@ -14,11 +13,6 @@ import java.util.*;
 @RequestMapping("/memos")
 public class MemoController {
     private final Map<Long, Memo> memoList = new HashMap<>();
-    private final PathMatcher pathMatcher;
-
-    public MemoController(PathMatcher pathMatcher) {
-        this.pathMatcher = pathMatcher;
-    }
 
     @PostMapping
     public ResponseEntity<MemoResponseDto> createMemo(@RequestBody MemoRequestDto dto){
